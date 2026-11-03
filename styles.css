@@ -57,3 +57,44 @@ body{background:var(--bg);color:var(--text)}
 .decision-answer p{font-size:11px;line-height:1.9;color:#aeb3c0;margin:0}
 @media(max-width:850px){.decision-layout{grid-template-columns:1fr;gap:25px}.decision-intro{position:static}.decision-intro h3 br{display:none}}
 @media(max-width:620px){.ai-disclosure{grid-template-columns:38px 1fr;padding:14px;gap:11px}.ai-disclosure-mark{width:36px;height:36px}.decisions-section{padding-top:90px}.decision-intro{padding:20px}.decision-item summary{grid-template-columns:28px 1fr 23px;gap:8px;padding:17px 0}.decision-question{font-size:12px}.decision-answer{padding:0 25px 18px 36px}.decision-answer p{font-size:10px}}
+
+
+/* V4 readability pass: larger body copy while preserving compact metadata labels. */
+body{font-size:16px}
+.hero-intro{font-size:17px;line-height:1.85}
+.proof-intro p{font-size:14px}
+.proof-stat small{font-size:9px}
+.about-copy p{font-size:15px;line-height:1.9}
+.about-copy .lead{font-size:20px}
+.about-facts small,.about-facts span{font-size:10px}
+.about-facts strong{font-size:14px}
+.ai-disclosure small{font-size:9px}
+.ai-disclosure strong{font-size:15px}
+.ai-disclosure p{font-size:13px;line-height:1.8}
+.exp-main ul{font-size:14px;line-height:1.9}
+.section-heading>p{font-size:14px;line-height:1.85}
+.work-copy p{font-size:14px;line-height:1.9}
+.work-copy ul{font-size:13px;line-height:1.9}
+.work-copy .scope-note{font-size:10px}
+.tech-tags span{font-size:9px}
+.tool-icons span{font-size:12px}
+.education p{font-size:12px;line-height:1.8}
+.contact-main>div p{font-size:14px;line-height:1.9}
+.decision-intro p{font-size:13px;line-height:1.9}
+.decision-question{font-size:15px;line-height:1.55}
+.decision-answer p{font-size:14px;line-height:1.95}
+.contact-bottom{font-size:9px}
+@media(max-width:620px){
+  .hero-intro{font-size:15px}
+  .about-copy p{font-size:14px}
+  .about-copy .lead{font-size:18px}
+  .ai-disclosure p{font-size:12px}
+  .exp-main ul{font-size:13px}
+  .section-heading>p{font-size:13px}
+  .work-copy p{font-size:13px}
+  .work-copy ul{font-size:12px}
+  .decision-intro p{font-size:12px}
+  .decision-question{font-size:13px}
+  .decision-answer p{font-size:13px}
+  .tool-icons span{font-size:11px}
+}

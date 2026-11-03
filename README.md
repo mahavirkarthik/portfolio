@@ -41,3 +41,7 @@ For a repository named `portfolio` under `mahavirkarthik`, the site URL is:
 - Dark technical theme with magenta / orange light accents inspired by Splunk's expressive gradient and Pump's direct, trust-building FAQ approach. This is an independent design, not a copy of either brand.
 - Added an interactive "Why I chose it" section with expandable engineering trade-off answers.
 - Added an explicit AI-assisted development disclosure: AI is used heavily as an accelerator, while architecture, infrastructure, integration, deployment, testing, troubleshooting and validation remain engineer-owned.
+
+
+## Version 4 updates
+- Increased paragraph, project description, experience bullet, AI disclosure and expandable Q&A font sizes for easier reading on desktop and mobile.
