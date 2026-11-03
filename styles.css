@@ -276,7 +276,7 @@ a {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: #30343c;
+    color: #3e578a;
     font: 9px "DM Mono";
     letter-spacing: 1px;
     line-height: 1.6
@@ -1432,7 +1432,7 @@ body {
 }
 
 .portrait-caption {
-    color: #d5d2db
+    color: #050505
 }
 
 .caption-line {
