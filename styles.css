@@ -1431,9 +1431,6 @@ body {
     filter: saturate(.85) contrast(1.04)
 }
 
-.portrait-caption {
-    color: #050505
-}
 
 .caption-line {
     background: var(--orange)
