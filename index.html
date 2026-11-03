@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5f3ee">
+  <meta name="theme-color" content="#0b0d12">
   <meta name="description" content="Mahavir Karthik — DevOps and Cloud Infrastructure Engineer. AWS, Kubernetes, Terraform, CI/CD, observability and AI infrastructure.">
   <title>Mahavir Karthik — Cloud & Platform Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
     <a class="wordmark" href="#top"><span class="wordmark-symbol">mk<span>.</span></span><span>MAHAVIR KARTHIK</span></a>
     <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
     <nav class="nav">
-      <a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Selected work</a><a href="#toolkit">Toolkit</a>
+      <a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Selected work</a><a href="#toolkit">Toolkit</a><a href="#decisions">Why I chose it</a>
       <a class="nav-cta" href="#contact">Get in touch <span>↗</span></a>
     </nav>
   </header>
@@ -38,9 +38,7 @@
       </div>
       <div class="portrait-wrap">
         <div class="portrait-backdrop"></div>
-        <div class="portrait-frame"><img src="./mahavir-profile.webp"
-     alt="Mahavir Karthik"
-     class="profile-image"></div>
+        <div class="portrait-frame"><img src="mahavir-profile.webp" alt="Portrait of Mahavir Karthik"></div>
         <div class="portrait-caption"><span class="caption-line"></span><span>ENGINEERING WITH<br>INTENTION.</span></div>
         <div class="portrait-stamp"><span>MK</span><small>BUILD · AUTOMATE · IMPROVE</small></div>
         <div class="portrait-index">01 / PROFILE</div>
@@ -63,6 +61,12 @@
         <div class="about-copy">
           <p class="lead">I work at the intersection of cloud infrastructure, automation, security and operations.</p>
           <p>My approach is grounded in understanding how systems behave: map the moving parts, remove unnecessary manual work, make failure visible, and build repeatable paths to production.</p>
+          <div class="ai-disclosure">
+            <div class="ai-disclosure-mark">AI<span>+</span></div>
+            <div><small>HOW I BUILD</small><strong>AI-assisted. Engineer-owned.</strong>
+              <p>I use AI heavily to accelerate development: exploring approaches, scaffolding code, debugging and documenting. I own the systems end to end: architecture decisions, infrastructure, integrations, deployment, testing, troubleshooting and validating what ships. I don't claim every line is hand-written; I take responsibility for understanding and operating the result.</p>
+            </div>
+          </div>
           <div class="about-facts">
             <div><small>EDUCATION</small><strong>IIIT Hyderabad</strong><span>M.S. Information Technology · Data Science / AI & ML focus</span></div>
             <div><small>BASED IN</small><strong>Hyderabad, India</strong><span>Open to relocation</span></div>
@@ -164,8 +168,51 @@
       </div>
     </section>
 
+    <section class="section wrap decisions-section" id="decisions">
+      <div class="section-label"><span>04</span><span>ENGINEERING DECISIONS / THE WHY</span></div>
+      <div class="section-heading"><h2>Don't just ask<br><em>what I used.</em><br>Ask why.</h2><p>Tap a question to see how I think through trade-offs. These answers reflect the work and experiments described above, not claims of production experience where I have only built a proof of concept.</p></div>
+      <div class="decision-layout">
+        <div class="decision-intro">
+          <span class="decision-kicker">HOW I APPROACH ENGINEERING</span>
+          <h3>Tools are choices.<br>Trade-offs are the work.</h3>
+          <p>I try to understand the constraint first, then choose the simplest design that meets it. Here are examples from my cloud, DevSecOps, observability and local LLM work.</p>
+          <div class="decision-legend"><span><i></i> SELECT A QUESTION</span><span>01 — 07</span></div>
+        </div>
+        <div class="decision-list">
+          <details class="decision-item" open>
+            <summary><span class="decision-num">01</span><span class="decision-question">Why use Kubernetes Deployment for stateless workloads?</span><span class="decision-plus"></span></summary>
+            <div class="decision-answer"><p>A Deployment manages the desired number of interchangeable Pods and continuously reconciles actual state with that desired state. It gives me rolling updates, self-healing through replacement Pods, scaling and declarative rollbacks. For stateless services, replicas can be replaced without needing stable identity or persistent local state. If a workload needs stable identity or storage semantics, I'd evaluate a StatefulSet instead.</p></div>
+          </details>
+          <details class="decision-item">
+            <summary><span class="decision-num">02</span><span class="decision-question">Why put a Service or load balancer in front of Pods instead of calling Pod IPs?</span><span class="decision-plus"></span></summary>
+            <div class="decision-answer"><p>Pod IPs are ephemeral. A Kubernetes Service gives clients a stable virtual endpoint and distributes traffic across the selected healthy endpoints. For traffic entering the cluster, an Ingress or Gateway with a load balancer can add routing, TLS termination and shared entry-point controls. I would not expose every Pod directly because that couples clients to short-lived implementation details.</p></div>
+          </details>
+          <details class="decision-item">
+            <summary><span class="decision-num">03</span><span class="decision-question">Why Terraform or CloudFormation instead of creating resources manually?</span><span class="decision-plus"></span></summary>
+            <div class="decision-answer"><p>Infrastructure as Code makes infrastructure reviewable, repeatable and version-controlled. It gives teams a change history, a plan or change set before execution, and a consistent way to recreate environments. The trade-off is that state, drift, secrets and module or template changes need disciplined handling. For AWS-native stacks, CloudFormation is a natural fit; Terraform is useful when I need a consistent workflow across providers and services.</p></div>
+          </details>
+          <details class="decision-item">
+            <summary><span class="decision-num">04</span><span class="decision-question">Why use both Checkov and TFLint in the IaC security scanner?</span><span class="decision-plus"></span></summary>
+            <div class="decision-answer"><p>They address different parts of the review. Checkov focuses on policy and security misconfiguration checks across IaC. TFLint focuses on Terraform-specific static analysis, provider-aware rules and common configuration issues. They can overlap at the edges, so I would tune rules and deduplicate findings rather than count duplicate alerts as extra security. In the POC, their findings were inputs to a broader graph-based risk view.</p></div>
+          </details>
+          <details class="decision-item">
+            <summary><span class="decision-num">05</span><span class="decision-question">Why separate metrics, logs and traces in an observability stack?</span><span class="decision-plus"></span></summary>
+            <div class="decision-answer"><p>They answer different questions. Metrics show trends and alert on numeric signals; logs preserve event detail for investigation; traces show a request's path and latency across services. In the Synefo POC I explored Prometheus for metrics, Loki for logs and Tempo for traces, with Grafana as the investigation surface. Correlating them with shared service and trace identifiers helps move from an alert to the relevant request and log context.</p></div>
+          </details>
+          <details class="decision-item">
+            <summary><span class="decision-num">06</span><span class="decision-question">Why run Qwen locally with vLLM, and where does KServe fit?</span><span class="decision-plus"></span></summary>
+            <div class="decision-answer"><p>Running Qwen3-0.6B on my local RTX 4060 let me experiment with model serving without depending on a hosted inference endpoint, while keeping the model and test data on my machine. vLLM provides an efficient serving runtime and an OpenAI-compatible API. KServe is a Kubernetes model-serving layer that can manage inference deployments and their lifecycle. I experimented with vLLM and KServe/Minikube workflows; I describe this as a learning lab, not a production GPU platform.</p></div>
+          </details>
+          <details class="decision-item">
+            <summary><span class="decision-num">07</span><span class="decision-question">If you use AI heavily to develop, what engineering work is actually yours?</span><span class="decision-plus"></span></summary>
+            <div class="decision-answer"><p>I use AI as a development accelerator for research, scaffolding, debugging, explaining unfamiliar code and iteration. I remain accountable for deciding what to build, understanding the architecture, selecting infrastructure and security boundaries, integrating components, deploying, testing behaviour, diagnosing failures and verifying the output. I won't pretend every line was typed manually. My ownership is the system and the engineering decisions, not a claim of unaided code production.</p></div>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="section wrap" id="toolkit">
-      <div class="section-label"><span>04</span><span>TOOLKIT</span></div>
+      <div class="section-label"><span>05</span><span>TOOLKIT</span></div>
       <div class="section-heading"><h2>The tools behind<br><em>the work.</em></h2><p>Technologies I have used across cloud infrastructure, delivery, operations and AI experiments.</p></div>
       <div class="toolkit-grid">
         <div class="tool-group"><small>CLOUD & INFRASTRUCTURE</small><div class="tool-icons"><span><i class="devicon-amazonwebservices-plain-wordmark"></i>AWS</span><span><i class="devicon-azure-plain"></i>Azure</span><span><i class="devicon-googlecloud-plain"></i>GCP</span></div></div>
@@ -183,7 +230,7 @@
     </section>
 
     <section class="contact wrap" id="contact">
-      <div class="section-label"><span>05</span><span>START A CONVERSATION</span></div>
+      <div class="section-label"><span>06</span><span>START A CONVERSATION</span></div>
       <div class="contact-main"><h2>Have a good<br>problem to <em>solve?</em></h2><div><p>I'm interested in DevOps, Cloud Infrastructure and Platform Engineering opportunities.</p><a class="btn btn-light" href="mailto:mahavirkarthik27@gmail.com">Email Mahavir <span>↗</span></a></div></div>
       <div class="contact-bottom"><a href="mailto:mahavirkarthik27@gmail.com">MAHAVIRKARTHIK27@GMAIL.COM</a><a href="https://github.com/mahavirkarthik" target="_blank" rel="noreferrer">GITHUB ↗</a><span>HYDERABAD, INDIA</span></div>
     </section>

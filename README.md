@@ -35,3 +35,9 @@ For a repository named `portfolio` under `mahavirkarthik`, the site URL is:
 - Technology marks are loaded from the Devicon CDN; the page remains readable if the icon CDN is unavailable.
 - Verify contact details and project claims before sharing with recruiters.
 - The Qwen / RAG work is labelled as a personal proof of concept, not a production deployment.
+
+
+## Version 3 updates
+- Dark technical theme with magenta / orange light accents inspired by Splunk's expressive gradient and Pump's direct, trust-building FAQ approach. This is an independent design, not a copy of either brand.
+- Added an interactive "Why I chose it" section with expandable engineering trade-off answers.
+- Added an explicit AI-assisted development disclosure: AI is used heavily as an accelerator, while architecture, infrastructure, integration, deployment, testing, troubleshooting and validation remain engineer-owned.
